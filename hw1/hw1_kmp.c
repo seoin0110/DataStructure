@@ -12,17 +12,17 @@ char str[10000000];
 char pat[3000];
 int failure[3000];
 int main(void){
-    fp1 = fopen("string.txt","r"); //string.txt ÆÄÀÏ ÀĞ±â ¸ğµå·Î ¿­±â
-    fp2 = fopen("pattern.txt","r"); //pattern.txt ÆÄÀÏ ÀĞ±â ¸ğµå·Î ¿­±â
+    fp1 = fopen("string.txt","r"); //string.txt íŒŒì¼ ì½ê¸° ëª¨ë“œë¡œ ì—´ê¸°
+    fp2 = fopen("pattern.txt","r"); //pattern.txt íŒŒì¼ ì½ê¸° ëª¨ë“œë¡œ ì—´ê¸°
     if(fp1 == NULL || fp2 == NULL)
     {
         printf("The string file does not exist.\n");
         return 0;
     }
-    ans = fopen("result_kmp.txt","w"); //result_kmp.txt ÆÄÀÏ ¾²±â ¸ğµå·Î ¿­±â
-    fgets(str,10000000,fp1); //fp1 ÆÄÀÏ ÀĞ±â str¿¡ ÀúÀå
-    fgets(pat,3000,fp2); //fp2 ÆÄÀÏ ÀĞ±â pat¿¡ ÀúÀå
-    for(int i = 0; i < 10000000;i++){ //string ±æÀÌ °è»ê
+    ans = fopen("result_kmp.txt","w"); //result_kmp.txt íŒŒì¼ ì“°ê¸° ëª¨ë“œë¡œ ì—´ê¸°
+    fgets(str,10000000,fp1); //fp1 íŒŒì¼ ì½ê¸° strì— ì €ì¥
+    fgets(pat,3000,fp2); //fp2 íŒŒì¼ ì½ê¸° patì— ì €ì¥
+    for(int i = 0; i < 10000000;i++){ //string ê¸¸ì´ ê³„ì‚°
         if(str[i]=='\n')
             str[i] = '\0';
         if(str[i]=='\0'){
@@ -31,7 +31,7 @@ int main(void){
         }
     }
 
-    for(int i = 0; i < 3000;i++){ //pattern ±æÀÌ °è»ê
+    for(int i = 0; i < 3000;i++){ //pattern ê¸¸ì´ ê³„ì‚°
         if(pat[i]=='\n')
             pat[i] ='\0';
         if(pat[i]=='\0'){
@@ -72,7 +72,7 @@ int main(void){
         }
     }
 
-    //"result_kmp.txt"ÆÄÀÏ¿¡ Ãâ·Â
+    //"result_kmp.txt"íŒŒì¼ì— ì¶œë ¥
     fprintf(ans,"%d",cnt);
     fprintf(ans,"\n");
     for(int i = 0; i < cnt;i++){
