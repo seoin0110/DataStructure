@@ -12,17 +12,17 @@ char str[10000000];
 char pat[3000];
 
 int main(void){
-    fp1 = fopen("string.txt","r"); //string.txt ÆÄÀÏ ÀĞ±â ¸ğµå·Î ¿­±â
-    fp2 = fopen("pattern.txt","r"); //pattern.txt ÆÄÀÏ ÀĞ±â ¸ğµå·Î ¿­±â
+    fp1 = fopen("string.txt","r"); //string.txt íŒŒì¼ ì½ê¸° ëª¨ë“œë¡œ ì—´ê¸°
+    fp2 = fopen("pattern.txt","r"); //pattern.txt íŒŒì¼ ì½ê¸° ëª¨ë“œë¡œ ì—´ê¸°
     if(fp1 == NULL || fp2 == NULL)
     {
         printf("The string file does not exist.\n");
         return 0;
     }
-    ans = fopen("result_naive.txt","w"); //result_naive.txt ÆÄÀÏ ¾²±â ¸ğµå·Î ¿­±â
-    fgets(str,10000000,fp1); //fp1 ÆÄÀÏ ÀĞ±â str¿¡ ÀúÀå
-    fgets(pat,3000,fp2); //fp2 ÆÄÀÏ ÀĞ±â pat¿¡ ÀúÀå
-    for(int i = 0; i < 10000000;i++){ //string ±æÀÌ °è»ê
+    ans = fopen("result_naive.txt","w"); //result_naive.txt íŒŒì¼ ì“°ê¸° ëª¨ë“œë¡œ ì—´ê¸°
+    fgets(str,10000000,fp1); //fp1 íŒŒì¼ ì½ê¸° strì— ì €ì¥
+    fgets(pat,3000,fp2); //fp2 íŒŒì¼ ì½ê¸° patì— ì €ì¥
+    for(int i = 0; i < 10000000;i++){ //string ê¸¸ì´ ê³„ì‚°
         if(str[i]=='\n')
             str[i] = '\0';
         if(str[i]=='\0'){
@@ -30,7 +30,7 @@ int main(void){
             break;
         }
     }
-    for(int i = 0; i < 3000;i++){ //pattern ±æÀÌ °è»ê
+    for(int i = 0; i < 3000;i++){ //pattern ê¸¸ì´ ê³„ì‚°
         if(pat[i]=='\n')
             pat[i] = '\0';
         if(pat[i]=='\0'){
@@ -45,13 +45,13 @@ int main(void){
                 break;
             }
         }
-        if(k==pat_size) //ÆĞÅÏÀÇ ¸¶Áö¸· ±ÛÀÚ±îÁö °°À¸¸é ÀÏÄ¡!
+        if(k==pat_size) //íŒ¨í„´ì˜ ë§ˆì§€ë§‰ ê¸€ìê¹Œì§€ ê°™ìœ¼ë©´ ì¼ì¹˜!
         {
-            ans_queue[cnt] = i; //ans_queue¿¡ ÀÏÄ¡ÇÏ´Â patternÀÇ ½ÃÀÛ index ÀúÀå
-            cnt++; //count ¸¦ 1 Áõ°¡
+            ans_queue[cnt] = i; //ans_queueì— ì¼ì¹˜í•˜ëŠ” patternì˜ ì‹œì‘ index ì €ì¥
+            cnt++; //count ë¥¼ 1 ì¦ê°€
         }
     }
-    //"result_naive.txt"ÆÄÀÏ¿¡ Ãâ·Â
+    //"result_naive.txt"íŒŒì¼ì— ì¶œë ¥
     fprintf(ans,"%d",cnt);
     fprintf(ans,"\n");
     for(int i = 0; i < cnt;i++){
